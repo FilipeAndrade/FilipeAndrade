@@ -5,6 +5,6 @@
 
 ## 𝗦𝘁𝗮𝘁𝘀
 
-[![Filipe's GitHub stats](https://github-readme-stats.vercel.app/api?username=filipeandrade&count_private=true&show_icons=true&theme=tokyonight)](https://github.com/anuraghazra/github-readme-stats)
+[![Filipe's GitHub stats](https://github-readme-stats.vercel.app/api?username=filipeandrade&count_private=true&show_icons=true&theme=tokyonight)](https://github.com/filipeandrade)
 
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=filipeandrade&theme=tokyonight)](https://git.io/streak-stats)
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=filipeandrade&theme=tokyonight)](https://github.com/filipeandrade)
