@@ -5,13 +5,15 @@ on:
     paths:
       - README.md
       - assets/**
-      - scripts/validate_visuals.py
+      - scripts/**
+      - .gitattributes
       - .github/workflows/github-visuals.yml
   pull_request:
     paths:
       - README.md
       - assets/**
-      - scripts/validate_visuals.py
+      - scripts/**
+      - .gitattributes
       - .github/workflows/github-visuals.yml
   schedule:
     - cron: '17 6 * * *' # 03:17 America/Sao_Paulo (UTC-3)
@@ -57,8 +59,7 @@ jobs:
 
       - name: Collect and validate every README image
         run: |
-          cp profile-3d-contrib/profile-south-season-animate.svg dist/profile-3d.svg
-          cp profile-3d-contrib/profile-night-rainbow.svg dist/profile-3d-dark.svg
+          python3 scripts/prepare_visuals.py profile-3d-contrib dist
           python3 scripts/validate_visuals.py dist
 
       - name: Save validated animations

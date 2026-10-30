@@ -22,6 +22,10 @@ The workflow runs in this **public** profile repository on the standard **ubuntu
 
 The light 3D calendar uses Southern Hemisphere seasons. Dark-mode images are selected with `<picture>`. SVGs contain native animation and need no JavaScript in the README.
 
+`scripts/prepare_visuals.py` keeps the calendar and contribution total from the pinned 3D generator. It removes the language chart, radar, and star/fork counters and uses a shorter layout. Every daily bar and its animation is preserved. The script checks the expected upstream structure and fails if it changes, leaving the last published images intact. The validator also rejects unprocessed 3D images with secondary charts.
+
+Maintenance scripts are excluded from GitHub's language statistics with `scripts/** -linguist-detectable` in `.gitattributes`. This prevents the profile repository from being presented as a Python project solely because its maintenance scripts use Python; it does not relabel those files as C#.
+
 Local validation (Python 3):
 
 ```sh
@@ -40,3 +44,4 @@ Action versions are pinned to complete commit hashes. When upgrading, check the 
 - [GitHub Actions security guidance](https://docs.github.com/en/actions/reference/security/secure-use)
 - [Private contribution visibility](https://docs.github.com/en/account-and-profile/how-tos/contribution-settings/manage-visibility-settings-for-private-contributions-and-achievements)
 - [GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions)
+- [GitHub language statistics overrides](https://github.com/github-linguist/linguist/blob/main/docs/overrides.md)
