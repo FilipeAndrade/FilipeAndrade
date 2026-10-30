@@ -42,14 +42,16 @@ jobs:
       - name: Generate 3D contribution calendars
         uses: yoshi389111/github-profile-3d-contrib@7d95e7d4cdc028dd1e1cbd957d65f35efb12ae39 # v0.9.3
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Use the optional private-data token only on the original repo's default branch.
+          GITHUB_TOKEN: ${{ github.repository == 'FilipeAndrade/FilipeAndrade' && github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && secrets.PROFILE_READ_TOKEN || secrets.GITHUB_TOKEN }}
           USERNAME: ${{ env.PROFILE_USERNAME }}
 
       - name: Generate contribution snakes
         uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3.5.0
         with:
           github_user_name: ${{ env.PROFILE_USERNAME }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Forks and PRs always validate with the built-in public-data token.
+          github_token: ${{ github.repository == 'FilipeAndrade/FilipeAndrade' && github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && secrets.PROFILE_READ_TOKEN || secrets.GITHUB_TOKEN }}
           outputs: |
             dist/snake.svg?color_snake=%2358a6ff
             dist/snake-dark.svg?palette=github-dark&color_snake=%2358a6ff
