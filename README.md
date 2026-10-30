@@ -53,7 +53,7 @@ Messaging with **NServiceBus or MassTransit**; applications packaged with **Dock
   <img width="100%" src="./assets/snake.svg" alt="Animated snake moving through Filipe Andrade's GitHub contribution calendar" />
 </picture>
 
-The animations follow the activity visible on my [GitHub profile](https://github.com/FilipeAndrade?tab=overview) and refresh daily. They are a snapshot of activity, not a measure of my full professional experience.
+The animations show a snapshot of my [GitHub contributions](https://github.com/FilipeAndrade?tab=overview) and refresh daily. They are not a measure of my full professional experience.
 
 <div align="center">
 
