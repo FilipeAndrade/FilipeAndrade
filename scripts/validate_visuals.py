@@ -37,6 +37,11 @@ for name in sorted(expected):
     assert svg.get("viewBox"), f"{name}: missing scalable viewBox"
     assert re.search(r"@keyframes|<animate(?:Transform)?\b", content), f"{name}: no animation"
     assert len(list(svg.iter())) > 10, f"{name}: empty or incomplete drawing"
+    if name.startswith("profile-3d"):
+        calendar = svg.find("{http://www.w3.org/2000/svg}g[@id='contribution-calendar']")
+        assert calendar is not None and len(calendar) > 0, f"{name}: missing contribution calendar"
+        assert svg.findall("{http://www.w3.org/2000/svg}g") == [calendar], f"{name}: unexpected secondary chart"
+        assert not list(calendar.iter("{http://www.w3.org/2000/svg}text")), f"{name}: unexpected chart labels"
     for element in svg.iter():
         assert element.tag.split("}")[-1] not in {"script", "foreignObject"}, f"{name}: unsafe element"
         for key, value in element.attrib.items():

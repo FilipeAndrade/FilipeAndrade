@@ -3,3 +3,6 @@
 *.yml text eol=lf
 *.py text eol=lf
 *.svg text eol=lf
+
+# Maintenance scripts do not represent the stack showcased by this profile.
+scripts/** -linguist-detectable
